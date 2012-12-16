@@ -1,9 +1,10 @@
-<% if signed_in? %>
-  <h1>You are signed in.</h1>
-  <%= link_to "Sign out!", signout_path, class: "btn btn-large btn-primary" %>
-<% else %>
-  <h1>Base App</h1>
-
-  <%= link_to "Sign up!", signup_path, class: "btn btn-large btn-primary" %>
-  <%= link_to "Sign in!", signin_path, class: "btn btn-large btn-primary" %>
+<% @top_tracks.each do |track| %>
+<div class="span3 track-card">
+  <div class="track-image">
+  <%= image_tag track.images[2] %>
+</div>
+<div class="track-name">
+  <%= link_to track.name, track.sample %>
+</div>
+</div>
 <% end %>
