@@ -1,4 +1,37 @@
 
 .track-card {
   height: 250px;
+  float: left;
+}
+
+.play-overlay {
+  height: 40px;
+  width: 40px;
+  z-index: 10;
+  display: none;
+  background: url("/jplayer.morning.light.png") 0 0 no-repeat;
+}
+
+.track-image:hover + .play-overlay {
+  height: 50%;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.artwork-60 {
+  float: left;
+  margin-top: 5px;
+  margin-left: 10px;
+  width: 60px;
+  height: 60px;
+}
+
+.jp-player-artwork {
+  width: 100%;
 }

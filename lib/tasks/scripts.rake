@@ -38,6 +38,7 @@ def add_track_to_db(track, rank)
     puts "Added #{new_track.name} with rank #{new_track.rank}"
   else
     old_track.rank = rank
+    old_track[Date.today] = rank
     old_track.save
     puts "Updated #{old_track.name} with rank #{old_track.rank}"
   end
