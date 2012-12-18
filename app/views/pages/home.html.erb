@@ -1,18 +1,20 @@
-  <ul class="thumbnails">
+<ul class="thumbnails">
+
+  <div id="player"></div>
+
 <% @top_tracks.each do |track| %>
 <div class="track-card">
 <li class="span3">
   <div class="track-image">
-    <%= image_tag track.images[2], data: {sample: "#{track.sample.to_s}", pic: "#{track.images[2].to_s}"} %>
+    <%= image_tag track.images[2], data: {sample: "#{track.sample.to_s}", pic: "#{track.images[2].to_s}", youtube: "#{track.youtube_id}"} %>
   </div>
   <div class="overlay">
     <div class="play-overlay"></div>
   </div>
   <div class="track-name">
-  <%= link_to track.name, track.sample %>
+    <%= link_to_function track.name, "play('#{track.youtube_id}')"; %>
   </div>
 </li>
 </div>
 <% end %>
 </ul>
-

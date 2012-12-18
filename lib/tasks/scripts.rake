@@ -34,6 +34,7 @@ def add_track_to_db(track, rank)
                   link: track["link"][0]["attributes"]["href"], duration: track["link"][1]["im:duration"]["label"],
                   sample: track["link"][1]["attributes"]["href"], tid: track["id"]["attributes"]["im:id"].to_i, 
                   aid: regex.match(track["im:artist"]["attributes"]["href"]).to_s[2..-2].to_i, gid: track["category"]["attributes"]["im:id"].to_i,
+                  artist_name: track["im:artist"]["label"],
                   rank: rank, rank_history: {Date.today => rank})
     puts "Added #{new_track.name} with rank #{new_track.rank}"
   else

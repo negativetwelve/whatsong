@@ -1,35 +1,29 @@
-<script type="text/javascript">
- $(document).ready(function(){
-  $("#jquery_jplayer_1").jPlayer({
-   ready: function () {
-    $(this).jPlayer("setMedia", {
-     m4a: "<%= @track.try(:sample) || Track.first.sample %>"
-    });
-    $(this).jPlayer("play");
-   },
-   swfPath: "/",
-   supplied: "m4a"
-  });
+<div id="track-player">
+    
+  <div id="track-artwork">
+    <div class="artwork-60">
+      <%= image_tag @track.try(:images).try(:at, 1) || Track.first.images[1], class: "artwork-60", id: "now-playing" %>
+    </div>
+  </div>
   
-  function updatepic(pic) {
-    $("#now-playing").attr("src", pic);
-  };
+  <div id="track-controls">
+    <div id="controls-left">
+      <a href="javascript:void(0)" onclick="play()" id="play-button">play</a>
+      <a href="javascript:void(0)" onclick="stop()" id="stop-button">stop</a>
+    </div>
+    
+    <div id="controls-middle">
+      
+    </div>
+    
+    <div id="controls-right">
+      
+    </div>
+  </div>
   
-  function loadmedia(track, pic) {
-    $('#jquery_jplayer_1').jPlayer('setMedia', {
-      m4a: track,
-    });
-    updatepic(pic);
-    $("#jquery_jplayer_1").jPlayer("play");
-  };
-  
-  $('img').click(function() {
-    var track = $(this).attr('data-sample');
-    var pic = $(this).attr('data-pic');
-    loadmedia(track, pic);
-  });
- });
-</script>
+</div>
+
+<!-- shuffle>
 
 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
 
@@ -64,10 +58,8 @@
 				<div class="jp-duration"></div>
 			</div>
 			<ul class="jp-toggles">
-        <!-- shuffle>
 				<li><a href="javascript:;" class="jp-shuffle" tabindex="1" title="shuffle">shuffle</a></li>
 				<li><a href="javascript:;" class="jp-shuffle-off" tabindex="1" title="shuffle off">shuffle off</a></li>
-				<-->
         
         <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
 				<li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
@@ -81,3 +73,5 @@
 </div>
 
 </div>
+
+<-->
